@@ -1,0 +1,9 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+.item{
+    background-color: rgb(206, 188, 188);
+    width: 100px;
+    height: 100px;
+}

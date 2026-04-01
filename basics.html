@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!-- Represents the root of an HTML document -->
+<html>
+    <!-- Contains meta-information about the HTML document, like title, styles, and links -->
+    <head>
+        <!-- Sets the title of the document, shown in the browser's title bar or tab -->
+        <title>Basic of HTML</title>
+        
+        <!-- Used to define internal CSS styling -->
+        <style>
+            h1 {
+                color: blue;
+            }
+        </style>
+        
+        <!-- Used to link external resources, like CSS files -->
+        <link rel="stylesheet" href="style1.css">
+    </head>
+
+    
+    <!-- Defines the document's body, which contains all visible contents -->
+    <body>
+
+        <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+        <!-- Header tags (h1 to h6) define HTML headings, with h1 being the most important -->
+        <h1>Hello World</h1>
+        
+        <!-- The <p> tag defines a paragraph -->
+        <p style="color:red; font-size: 19px;">Yooooo styling inline</p>
+        
+        <!-- The <br> tag inserts a single line break -->
+        <br>
+        
+        <!-- The <hr> tag defines a thematic break / horizontal line -->
+        <hr>
+        
+        <!-- The <i> tag defines italic text -->
+        <i>sfasf</i>
+        
+        <!-- The <b> tag specifies bold text -->
+        <b>bold</b>
+        
+        <!-- The <strong> tag defines important text (usually displayed in bold) -->
+        <strong>faf </strong>
+        
+        <!-- The <ul> tag defines an unordered (bulleted) list -->
+        <ul>
+            <!-- The <li> tag defines a list item -->
+            <li>dsfaf</li>
+            <li>adfas</li>
+            <li>afdsfa</li>
+        </ul>
+        
+        <!-- The <ol> tag defines an ordered (numbered) list -->
+        <ol>
+            <li>dsfaf</li>
+            <li>adfas</li>
+            <li>afdsfa</li>
+        </ol>
+        
+        <!-- The <dl> tag defines a description list -->
+        <dl>
+            <!-- The <dt> tag defines a term/name in a description list -->
+            <dt>Term 1</dt>
+            <!-- The <dd> tag describes each term/name in a description list -->
+            <dd>Definition 1</dd>
+            <dt>Term 2</dt>
+            <dd>Definition 2</dd>
+        </dl>
+        
+        <!-- The <span> tag is an inline container used to mark up a part of a text, or a part of a document -->
+        <span>dsfa  </span>
+
+        <!-- The <a> tag defines a hyperlink, used to link from one page to another -->
+        <a href="https://www.example.com">Visit Example</a>
+
+        <!-- The <div> tag defines a division or a section in an HTML document (block-level container) -->
+        <div class="container">
+            <div class="item">item1</div>
+            <div class="item">item2</div>
+            <div class="item">item3</div>
+        </div>
+
+        <!-- The <img> tag is used to embed an image in an HTML page -->
+        <img src="image.jpg" alt="Description of the image" width="300" height="200">   
+        
+        <!-- The <table> tag defines an HTML table -->
+        <table border="1">
+            <!-- The <tr> tag defines a row in an HTML table -->
+            <tr>
+                <!-- The <th> tag defines a header cell in an HTML table -->
+                <th>Header 1</th>
+                <th>Header 2</th>
+            </tr>
+            <tr>
+                <!-- The <td> tag defines a standard data cell in an HTML table -->
+                <td>Data 1</td>
+                <td>Data 2</td>
+            </tr>
+            <tr>
+                <td>Data 3</td>
+                <td>Data 4</td>
+            </tr>
+        </table>
+
+        <!-- The <form> tag is used to create an HTML form for user input -->
+        <form action="/submit_form" method="post">
+            <!-- The <label> tag defines a label for several form elements -->
+            <label for="username">Username:</label>
+            <!-- The <input> tag specifies an input field where the user can enter data -->
+            <input type="text" id="username" name="username" placeholder="Enter your username" required><br>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            
+            <!-- Checkbox input type -->
+            <input type="checkbox" id="subscribe" name="subscribe" value="subscribe">
+            <label for="subscribe">Subscribe to newsletter</label><br>
+            
+            <!-- Submit button for the form -->
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>

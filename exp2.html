@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BVCOE - CSE Semester 6 Timetable</title>
+    <style>
+        :root {
+            --primary-blue: #0a2a66;
+            --accent-blue: #1a4cff;
+            --light-bg: #f4f7fa;
+            --text-dark: #2d3436;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .logo-img { height: 50px; width: auto; }
+
+        .header-title {
+            color: var(--primary-blue);
+            font-weight: 800;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        .main-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .panel-left {
+            flex: 0 0 20%;
+            background-color: var(--light-bg);
+            border-right: 1px solid #ddd;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .panel-center {
+            flex: 0 0 60%;
+            background-color: var(--white);
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .panel-right {
+            flex: 0 0 20%;
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h3 { 
+            color: var(--primary-blue); 
+            border-bottom: 2px solid var(--accent-blue); 
+            padding-bottom: 8px; 
+            margin-top: 0;
+            font-size: 16px;
+            
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            table-layout: fixed;
+        }
+
+        th {
+            background: var(--primary-blue);
+            color: white;
+            padding: 10px 10px;
+            font-size: 11px;
+            
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 8px 4px;
+            text-align: center;
+            font-size: 11px;
+            word-wrap: break-word;
+        }
+
+        .day-col { font-weight: bold; background: #f0f0f0; width: 70px;height: 40px; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+
+        .remark-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 12px;
+            border-left: 3px solid #ffcc00;
+        }
+
+        .faculty-list { font-size: 13px; list-style: none; padding: 0; }
+        .faculty-list li { margin-bottom: 8px; border-bottom: 1px solid #e0e0e0; padding-bottom: 4px; }
+
+        .timing-section {
+            margin-top: 20px;
+            color: white;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .timing-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .timing-list li {
+            font-size: 13px;
+            padding: 6px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .timing-list li span {
+            font-weight: bold;
+            color: #ffffff; 
+        }
+        .panel-left .timing-list li span {
+            color: white
+        }
+            </style>
+    </head>
+<body>
+
+    <header>
+        <div class="logo-container"><img src="images.png" alt="BVCOE" class="logo-img"></div>
+        <div class="header-title">Bharati Vidyapeeth's College of Engineering</div>
+        <div style="width: 50px;"></div> 
+    </header>
+
+    <div class="main-container">
+        <aside class="panel-left">
+            <h3>Subject & Faculty</h3>
+            <ul class="faculty-list">
+                <li><b>SSMD:</b> Ms. Ankita Gulati</li>
+                <li><b>AI:</b> Ms. Sakshi, Dr. Rakhi</li>
+                <li><b>WT:</b> Mr. Mohit, Ms. Akanksha</li>
+                <li><b>PME:</b> Dr. Kirti Sharma</li>
+                <li><b>AJP:</b> Ms. Heena Kwatra</li>
+                <li><b>Python:</b> Ms. Amrita Ticku</li>
+                <li><b>UHV:</b> Ms. Shikha Bajaj</li>
+            </ul>
+        </aside>
+
+        <main class="panel-center">
+            <h2 style="text-align: center; color: var(--primary-blue); margin-top: 0; font-size: 18px;">Class Time Table - Semester 6 (2025-26)</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Days</th>
+                        <th>L1</th>
+                        <th>L2</th>
+                        <th>L3</th>
+                        <th>L4</th>
+                        <th>L5</th>
+                        <th>L6</th>
+                        <th>L7</th>
+                        <th>L8</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="day-col">Monday</td>
+                        <td>SSMD(P1)</td>
+                        <td>-</td>
+                        <td>AI(P1)/SSMD(P2)/WT(P3)</td>
+                        <td>-</td>
+                        <td>AI(L) B301</td>
+                        <td>-</td>
+                        <td>PME(L) B101</td>
+                        <td>WT(L) B101</td>
+                    </tr>
+                    <tr>
+                        <td class="day-col">Tuesday</td>
+                        <td>SSMD(L) B103</td>
+                        <td>PME(L) B103</td>
+                        <td>-</td>
+                        <td>Python(L) B101</td>
+                        <td>WT(P1)/AI(P2)/Py(P3)</td>
+                        <td>-</td>
+                        <td>AI(L) B302</td>
+                        <td>WT(L) B302</td>
+                    </tr>
+                    <tr>
+                        <td class="day-col">Wednesday</td>
+                        <td>AJP(L) B404</td>
+                        <td>SSMD(L) B404</td>
+                        <td>WT(L) B404</td>
+                        <td>Python(L) B103</td>
+                        <td>UHV(L) B103</td>
+                        <td>-</td>
+                        <td colspan="2">Python(P2) A-103</td>
+                    </tr>
+                    <tr>
+                        <td class="day-col">Thursday</td>
+                        <td>-</td>
+                        <td>AI(L) B102</td>
+                        <td>Py(P1)/AJP(P2)/AI(P3)</td>
+                        <td>-</td>
+                        <td>AJP(L) B102</td>
+                        <td>-</td>
+                        <td colspan="2">AJP(P1)/WT(P2)</td>
+                    </tr>
+                    <tr>
+                        <td class="day-col">Friday</td>
+                        <td colspan="2">SSMD(P3)/AJP(P3)</td>
+                        <td>-</td>
+                        <td>SSMD(L) B102</td>
+                        <td>Python(L) B404</td>
+                        <td>PME(L) B309</td>
+                        <td>AJP B102</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+
+        
+
+        <aside class="panel-right">
+            <h3 style="color: white; border-color: #ffcc00;">Academic Notes</h3>
+            <div class="remark-box"><b>W.E.F:</b> 16.01.2026</div>
+            <div class="remark-box">Labs are conducted in rooms A-102, A-103, A-107, and C-103 as per batches.</div>
+            <div class="remark-box">Theory classes are also there</div>
+
+            <div class="timing-section">
+         <h3 style="color: white; border-color: #ffcc00;">Lecture Timings</h3>
+        <ul class="timing-list">
+            <li><span>Lecture 1:</span> 08:40 - 09:40</li>
+            <li><span>̵Lecture 2:</span> 09:40 - 10:40</li>
+            <li><span>Lecture 3:</span> 10:40 - 11:40</li>
+            <li><span>Lecture 4:</span> 11:40 - 12:40</li>
+            <li><span>Lecture 5:</span> 12:40 - 01:40</li>
+            <li><span>Lecture 6:</span> 01:40 - 02:40</li>
+            <li><span>Lecture 7:</span> 02:40 - 03:40</li>
+            <li><span>Lecture 8:</span> 03:40 - 04:40</li>
+        </ul>
+        </div> 
+        </aside>
+    </div>
+
+</body>
+</html>

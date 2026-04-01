@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BVCOE - PSP Clear Glass</title>
+    <style>
+        body {
+            background: #050508;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .psp-body {
+            width: 920px;
+            height: 420px;
+            background: linear-gradient(145deg, #1a1a1a, #000);
+            border-radius: 100px;
+            padding: 20px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 0 80px rgba(0,0,0,1);
+            border: 4px solid #111;
+        }
+
+        /* THE SCREEN: Content on top, Glass behind it */
+        .screen-frame {
+            flex: 1;
+            height: 320px;
+            margin: 0 60px;
+            border-radius: 15px;
+            border: 12px solid #000;
+            position: relative;
+            background: #000; /* The deep background */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* This layer sits BEHIND the text but provides the glass frost */
+        .glass-background {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1; /* Below the text */
+        }
+
+        /* TEXT LAYER: Sits on top for 100% clarity */
+        .ui-content {
+            position: relative;
+            z-index: 10; /* Above the glass */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* INTERNAL CSS: Experiment Font Requirements */
+        #popup {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100; /* Topmost inside the screen */
+        }
+
+        .capital-font {
+            color: #ffcc00;        /* Color */
+            font-weight: 900;      /* Bold */
+            font-size: 52px;       /* Size */
+            letter-spacing: 5px;
+            text-shadow: 0 0 25px rgba(255, 204, 0, 0.4);
+            margin: 10px 0;
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        /* Scrollable Menu */
+        .menu-viewport {
+            flex: 1;
+            overflow-y: auto;
+            padding: 40px 0;
+            scroll-behavior: smooth;
+        }
+        .menu-viewport::-webkit-scrollbar { width: 0; }
+
+        .item {
+            padding: 15px 40px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 20px;
+            font-weight: bold;
+            transition: 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .item.active {
+            color: #fff;
+            transform: translateX(35px);
+            text-shadow: 0 0 15px rgba(26, 76, 255, 0.8);
+        }
+
+        /* Hardware Keys */
+        .key {
+            width: 52px;
+            height: 52px;
+            background: #181818;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #444;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #000;
+            border: 1px solid #222;
+        }
+        .key:active { transform: translateY(4px); box-shadow: 0 2px 0 #000; color: #ffcc00; }
+        .grid-btn { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="psp-body">
+        <div class="grid-btn">
+            <div></div><div class="key" onclick="nav(-1)">▲</div><div></div>
+            <div class="key">◀</div><div></div><div class="key">▶</div>
+            <div></div><div class="key" onclick="nav(1)">▼</div><div></div>
+        </div>
+
+        <div class="screen-frame">
+            <div class="glass-background"></div>
+
+            <div class="ui-content">
+                <div id="popup">
+                    <p style="color: #ffcc00; font-size: 11px; letter-spacing: 8px; font-weight: bold;">ACCESS_GRANTED</p>
+                    <div id="cap-display" class="capital-font">---</div>
+                    <div style="color: #444; font-size: 10px; margin-top: 15px;">PRESS (◯) TO DISMISS</div>
+                </div>
+
+                <div class="menu-viewport" id="viewport">
+                    </div>
+            </div>
+        </div>
+
+        <div class="grid-btn">
+            <div></div><div class="key" style="color: #00c2ff;">△</div><div></div>
+            <div class="key" style="color: #ff4757;" onclick="closePop()">▢</div><div></div><div class="key" style="color: #ff4757;" onclick="closePop()">◯</div>
+            <div></div><div class="key" style="color: #2ed573;" onclick="confirm()">✕</div><div></div>
+        </div>
+    </div>
+
+    <script>
+        const data = [
+            {n: "Australia", c: "Canberra"}, {n: "Brazil", c: "Brasília"},
+            {n: "Canada", c: "Ottawa"}, {n: "Denmark", c: "Copenhagen"},
+            {n: "Egypt", c: "Cairo"}, {n: "France", c: "Paris"},
+            {n: "Germany", c: "Berlin"}, {n: "India", c: "New Delhi"},
+            {n: "Japan", c: "Tokyo"}, {n: "Russia", c: "Moscow"},
+            {n: "USA", c: "Washington D.C."}, {n: "United Kingdom", c: "London"}
+        ].sort((a,b) => a.n.localeCompare(b.n));
+
+        const vp = document.getElementById('viewport');
+        data.forEach((x, i) => {
+            const d = document.createElement('div');
+            d.className = `item ${i===0?'active':''}`;
+            d.innerText = x.n;
+            d.dataset.cap = x.c;
+            vp.appendChild(d);
+        });
+
+        let idx = 0;
+        const items = document.querySelectorAll('.item');
+
+        function nav(s) {
+            items[idx].classList.remove('active');
+            idx = (idx + s + items.length) % items.length;
+            items[idx].classList.add('active');
+            items[idx].scrollIntoView({ block: "center", behavior: "smooth" });
+        }
+
+        function confirm() {
+            document.getElementById('cap-display').innerText = items[idx].dataset.cap;
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        function closePop() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

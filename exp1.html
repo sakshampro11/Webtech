@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BVCOE - CSE Department</title>
+    <style>
+        /* Basic Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Standard Header */
+        header {
+            background-color: white;
+            padding: 10px 5%;
+            border-bottom: 2px solid #0a2a66;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Buttons simplified */
+        .btn {
+            padding: 8px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .btn-wifi { border: 1px solid #1a4cff; color: #1a4cff; }
+        .btn-lan { background: #0a2a66; color: white; }
+
+        /* Simple Hero Section */
+        .hero {
+            background-color: #0a2a66;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .emphasis-text {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        /* 2-Column Layout using Flexbox */
+        .container {
+            display: flex;
+            max-width: 1100px;
+            margin: 20px auto;
+            gap: 20px;
+            padding: 0 15px;
+        }
+
+        main {
+            flex: 2; /* Takes up 60-70% */
+        }
+
+        aside {
+            flex: 1; /* Takes up 30-40% */
+        }
+
+        /* Content Boxes */
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .card h2, .card h4 {
+            color: #0a2a66;
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* Sidebar Image */
+        .sidebar-img {
+            width: 100%;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+
+        .back-to-top {
+            display: inline-block;
+            background: #0a2a66;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="images.png" alt="BVCOE Logo" class="logo-img">
+        <nav>
+            <a href="#about">About</a>
+            <a href="#curriculum">Curriculum</a>
+            <a href="https://wifi.portal" class="btn btn-wifi">WiFi Login</a>
+            <a href="https://lan.portal" class="btn btn-lan">LAN Access</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Bharati Vidyapeeth College of Engineering</h1>
+        <p>Computer Science & Engineering Department</p>
+    </div>
+
+    <div class="container">
+        <main>
+            <div id="about" class="card">
+                <h2>Department Overview</h2>
+                <p>
+                    Established with a mission to excel, the CSE department provides a <i>rigorous curriculum</i>
+                    focused on the <u>evolving needs</u> of the IT industry. Our labs are the heart of
+                    our innovation.
+                </p>
+            </div>
+
+            <div id="curriculum" class="card">
+                <h2>Our Academic Focus</h2>
+                <h3>Core Research:</h3>
+                <ul>
+                    <li><u>Artificial Intelligence</u> & ML</li>
+                    <li>Cyber Security</li>
+                    <li>Cloud Computing</li>
+                </ul>
+
+                <h3>Course Roadmap:</h3>
+                <ol>
+                    <li>Programming Logic (Year 1)</li>
+                    <li>Data Structures (Year 2)</li>
+                    <li>System Design (Year 3)</li>
+                    <li>Capstone Project (Year 4)</li>
+                </ol>
+            </div>
+            
+            <a href="#" class="back-to-top">Back to Top</a>
+        </main>
+
+        <aside>
+            
+
+            <div class="card">
+                <h4>Department Gallery</h4>
+                <a href="https://www.bvcoend.ac.in/gallery" target="_blank">
+                    <img src="BVCOE_Computer_Lab.JPG" alt="Lab" class="sidebar-img">
+                </a>
+            </div>
+
+            <div class="card">
+                <h4>Quick Links</h4>
+                <ul style="list-style: none; padding: 0; font-size: 14px;">
+                    <li>• <a href="https://scholar.google.com">Research Papers</a></li>
+                    <li>• <a href="https://github.com">Department GitHub</a></li>
+                    <li>• <a href="https://www.bvcoend.ac.in">College Website</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 BVCOE CSE Department</p>
+    </footer>
+
+</body>
+</html>

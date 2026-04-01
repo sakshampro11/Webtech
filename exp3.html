@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BVCOE - Experiment 3</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        #capital-display {
+            color: #1a4cff;         
+            font-weight: bold;    
+            font-size: 24px;   
+            margin-left: 20px;
+            vertical-align: middle;
+        }
+
+        select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #0a2a66;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        h2 { color: #0a2a66; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Country and its Capital</h1>
+        <p>choose a country from the list to see its capital</p>
+    </header>
+
+    <div class="experiment-container" style="border-top: 6px solid #ffcc00;">
+        <h2>Country & Capital Selector</h2>
+        <p>Select a country from the list to see its capital:</p>
+
+        <div style="margin-top: 30px;">
+            <select id="countrySelect" onchange="showCapital()">
+                <option value="">-- Choose a Country --</option>
+                <option value="New Delhi">India</option>
+                <option value="Washington D.C.">USA</option>
+                <option value="Tokyo">Japan</option>
+                <option value="Paris">France</option>
+                <option value="Berlin">Germany</option>
+            </select>
+
+            <span id="capital-display"></span>
+        </div>
+    </div>
+
+    <script>
+        function showCapital() {
+            var select = document.getElementById("countrySelect");
+            var display = document.getElementById("capital-display");
+            display.innerHTML = select.value;
+        }
+    </script>
+
+</body>
+</html>

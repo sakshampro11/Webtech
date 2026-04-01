@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BVCOE - CSE Semester 6 Timetable</title>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .header-title {
+            color: var(--primary-blue);
+            font-weight: 800;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        .wrapper {
+            display: flex;
+            min-height: 90vh;
+        }
+
+        .side-panel {
+            flex: 1; 
+            background-color: #f4f4f4;
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+
+        .main-content {
+            flex: 3; 
+            padding: 20px;
+        }
+
+        .right-panel {
+            flex: 1;
+            background-color: #0a2a66;
+            color: white;
+            padding: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+            font-size: 12px;
+            height: 30px;
+        }
+
+        th {
+            background-color: #0a2a66;
+            color: white;
+        }
+
+        .day-label {
+            background-color: #eee;
+            font-weight: bold;
+        }
+
+        ul {
+            padding-left: 15px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        h3 {
+            border-bottom: 1px solid #999;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bharati Vidyapeeth's College of Engineering</h1>
+    </header>
+
+    <div class="wrapper">
+        <aside class="side-panel">
+            <h3>Subjects</h3>
+            <ul>
+                <li>SSMD: Ms. Ankita Gulati</li>
+                <li>AI: Ms. Sakshi/Dr. Rakhi</li>
+                <li>WT: Mr. Mohit/Ms. Akanksha</li>
+                <li>PME: Dr. Kirti Sharma</li>
+                <li>AJP: Ms. Heena Kwatra</li>
+                <li>Python: Ms. Amrita Ticku</li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <h2 style="text-align:center;">CSE Sem-6 Timetable (2025-26)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>L1</th>
+                        <th>L2</th>
+                        <th>L3</th>
+                        <th>L4</th>
+                        <th>L5</th>
+                        <th>L6</th>
+                        <th>L7</th>
+                        <th>L8</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="day-label">Mon</td>
+                        <td>SSMD(P1)</td>
+                        <td>-</td>
+                        <td>AI/SSMD/WT</td>
+                        <td>-</td>
+                        <td>AI(L)</td>
+                        <td>-</td>
+                        <td>PME(L)</td>
+                        <td>WT(L)</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">Tue</td>
+                        <td>SSMD(L)</td>
+                        <td>PME(L)</td>
+                        <td>-</td>
+                        <td>Python(L)</td>
+                        <td>WT/AI/Py</td>
+                        <td>-</td>
+                        <td>AI(L)</td>
+                        <td>WT(L)</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">Wed</td>
+                        <td>AJP(L)</td>
+                        <td>SSMD(L)</td>
+                        <td>WT(L)</td>
+                        <td>Python(L)</td>
+                        <td>UHV(L)</td>
+                        <td>-</td>
+                        <td colspan="2">Python(P2)</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">Thu</td>
+                        <td>-</td>
+                        <td>AI(L)</td>
+                        <td>Py/AJP/AI</td>
+                        <td>-</td>
+                        <td>AJP(L)</td>
+                        <td>-</td>
+                        <td colspan="2">AJP(P1)/WT(P2)</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">Fri</td>
+                        <td colspan="2">SSMD/AJP</td>
+                        <td>-</td>
+                        <td>SSMD(L)</td>
+                        <td>Python(L)</td>
+                        <td>PME(L)</td>
+                        <td>AJP</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+
+        <aside class="right-panel">
+            <h3>Timings</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li>L1: 08:40 - 09:40</li>
+                <li>L2: 09:40 - 10:40</li>
+                <li>L3: 10:40 - 11:40</li>
+                <li>L4: 11:40 - 12:40</li>
+                <li>L5: 12:40 - 01:40</li>
+                <li>L6: 01:40 - 02:40</li>
+                <li>L7: 02:40 - 03:40</li>
+                <li>L8: 03:40 - 04:40</li>
+            </ul>
+            <hr>
+            <p><strong>W.E.F:</strong> 16.01.2026</p>
+            <p>Note: Labs in rooms A-102, A-103, A-107.</p>
+        </aside>
+    </div>
+
+</body>
+</html>
