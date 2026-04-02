@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BVCOE - JavaScript Experiment</title>
+    <style>
+        :root {
+            --primary-blue: #0a2a66;
+            --accent-blue: #1a4cff;
+            --light-bg: #f4f7fa;
+            --text-dark: #2d3436;
+            --white: #ffffff;
+            --gold: #ffcc00;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--white);
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--primary-blue);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            text-align: center;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-size: 22px;
+        }
+
+        h3 { 
+            color: var(--primary-blue); 
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        .form-group { margin-bottom: 15px; }
+        
+        label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 600; 
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #ddd; 
+            border-radius: 4px; 
+            box-sizing: border-box; 
+            font-family: inherit;
+        }
+
+        button {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover { background: var(--accent-blue); }
+
+        .result-box {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            display: none;
+            font-weight: 500;
+        }
+
+        .success { background: #e7f4e9; color: #1e4620; border: 1px solid #c3e6cb; display: block; }
+        .error { background: #fdf2f2; color: #9b1c1c; border: 1px solid #f5c6cb; display: block; }
+        
+        hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <section>
+            <h3>(a) Test First Character Uppercase</h3>
+            <div class="form-group">
+                <label>Enter String</label>
+                <input type="text" id="upperInput" placeholder="e.g. Hello">
+            </div>
+            <button onclick="testUppercase()">Verify Character</button>
+            <div id="upperResult" class="result-box"></div>
+        </section>
+
+        <hr>
+
+        <section>
+            <h3>(b) Registration Field Validation</h3>
+            <div class="form-group">
+                <label>Name (Alphabets only, min 6 chars)</label>
+                <input type="text" id="regName">
+            </div>
+            <div class="form-group">
+                <label>Password (min 6 chars)</label>
+                <input type="password" id="regPass">
+            </div>
+            <div class="form-group">
+                <label>E-mail ID (standard pattern)</label>
+                <input type="text" id="regEmail">
+            </div>
+            <div class="form-group">
+                <label>Phone Number (10 digits only)</label>
+                <input type="text" id="regPhone">
+            </div>
+            <button onclick="validateForm()">Validate Registration</button>
+            <div id="formResult" class="result-box"></div>
+        </section>
+
+        <hr>
+
+        <section>
+            <h3>(c) Thousands Separator Formatter</h3>
+            <div class="form-group">
+                <label>Enter Integer</label>
+                <input type="number" id="numInput" placeholder="e.g. 1000000">
+            </div>
+            <button onclick="formatNumber()">Format Integer</button>
+            <div id="numResult" class="result-box"></div>
+        </section>
+    </div>
+
+    <script>
+        // Task A Logic
+        function testUppercase() {
+            const str = document.getElementById('upperInput').value;
+            const res = document.getElementById('upperResult');
+            if (!str) return showStatus(res, "Please enter text", false);
+            
+            /^[A-Z]/.test(str) 
+                ? showStatus(res, "Valid: Starts with uppercase", true)
+                : showStatus(res, "Invalid: Starts with lowercase/symbol", false);
+        }
+
+        // Task B Logic
+        function validateForm() {
+            const name = document.getElementById('regName').value;
+            const pass = document.getElementById('regPass').value;
+            const email = document.getElementById('regEmail').value;
+            const phone = document.getElementById('regPhone').value;
+            const res = document.getElementById('formResult');
+
+            if (name.length < 6 || !/^[A-Za-z\s]+$/.test(name)) {
+                return showStatus(res, "Name: Must be alphabets and min 6 characters.", false);
+            }
+            if (pass.length < 6) {
+                return showStatus(res, "Password: Must be at least 6 characters.", false);
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                return showStatus(res, "Email: Invalid email format.", false);
+            }
+            if (!/^\d{10}$/.test(phone)) {
+                return showStatus(res, "Phone: Must be exactly 10 digits.", false);
+            }
+
+            showStatus(res, "Registration form is valid!", true);
+        }
+
+        // Task C Logic
+        function formatNumber() {
+            const val = document.getElementById('numInput').value;
+            const res = document.getElementById('numResult');
+            if (!val) return showStatus(res, "Please enter a number", false);
+
+            const formatted = Number(val).toLocaleString('en-IN');
+            showStatus(res, "Result: " + formatted, true);
+        }
+
+        // Helper function for UI feedback
+        function showStatus(element, message, isSuccess) {
+            element.innerHTML = message;
+            element.className = isSuccess ? "result-box success" : "result-box error";
+        }
+    </script>
+
+</body>
+</html>
