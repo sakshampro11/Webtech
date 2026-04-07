@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,28 +45,30 @@
             font-size: 22px;
         }
 
-        h3 { 
-            color: var(--primary-blue); 
+        h3 {
+            color: var(--primary-blue);
             font-size: 18px;
             margin-top: 30px;
         }
 
-        .form-group { margin-bottom: 15px; }
-        
-        label { 
-            display: block; 
-            margin-bottom: 8px; 
-            font-weight: 600; 
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
             color: var(--text-dark);
             font-size: 14px;
         }
 
-        input { 
-            width: 100%; 
-            padding: 12px; 
-            border: 1px solid #ddd; 
-            border-radius: 4px; 
-            box-sizing: border-box; 
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
             font-family: inherit;
         }
 
@@ -83,7 +86,9 @@
             margin-top: 10px;
         }
 
-        button:hover { background: var(--accent-blue); }
+        button:hover {
+            background: var(--accent-blue);
+        }
 
         .result-box {
             margin-top: 15px;
@@ -94,12 +99,28 @@
             font-weight: 500;
         }
 
-        .success { background: #e7f4e9; color: #1e4620; border: 1px solid #c3e6cb; display: block; }
-        .error { background: #fdf2f2; color: #9b1c1c; border: 1px solid #f5c6cb; display: block; }
-        
-        hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
+        .success {
+            background: #e7f4e9;
+            color: #1e4620;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .error {
+            background: #fdf2f2;
+            color: #9b1c1c;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #eee;
+            margin: 40px 0;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="container">
@@ -157,8 +178,8 @@
             const str = document.getElementById('upperInput').value;
             const res = document.getElementById('upperResult');
             if (!str) return showStatus(res, "Please enter text", false);
-            
-            /^[A-Z]/.test(str) 
+
+            /^[A-Z]/.test(str)
                 ? showStatus(res, "Valid: Starts with uppercase", true)
                 : showStatus(res, "Invalid: Starts with lowercase/symbol", false);
         }
@@ -205,4 +226,5 @@
     </script>
 
 </body>
+
 </html>
